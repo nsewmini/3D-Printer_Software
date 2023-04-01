@@ -1,0 +1,15 @@
+﻿@model dropdownlist;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>this is model view approach</h2>
+
+        </br/>
+        <h1>choose the shape that you prfer to select</h1>
+        @Html.DropDownList("ID",Model._Shapelist as SelectList,"click here to select shape",new {@class ="form-control"})
+
+    </div>
+</div>
