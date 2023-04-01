@@ -45,6 +45,6 @@ namespace _3D_Printer_Software.Models
         });
         return shapes;
     }
-
-}
+        public string textbox{ get; set; }
+    }
 }
