@@ -29,27 +29,8 @@ namespace _3D_Printer_Software.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-        //add the shapes for the dropdown list
-        private List<ShapesVM> GetShapes()
-        {
-
-            var companies = new List<ShapesVM>();
-            companies.Add(new ShapesVM()
-            {
-                ID = 1,
-                shapetype = "circle"
-            });
-            companies.Add(new ShapesVM()
-            {
-                ID = 2,
-                shapetype = "rectangle"
-            }); companies.Add(new ShapesVM()
-            {
-                ID = 3,
-                shapetype = "triangle"
-            });
-            return companies;
-        }
+     
+       
 
 
 
