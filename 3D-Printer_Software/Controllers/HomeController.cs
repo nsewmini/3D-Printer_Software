@@ -30,9 +30,6 @@ namespace _3D_Printer_Software.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
      
-       
-
-
-
+      
     }
 }
