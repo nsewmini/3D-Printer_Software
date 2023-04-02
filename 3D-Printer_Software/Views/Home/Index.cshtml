@@ -7,13 +7,13 @@
     <div class="col-md-4">
         <h2>this is model view approach drop down list </h2>
 
-        </br/>
+        <br/>
         <h1>choose the shape that you prfer to select</h1>
         @Html.DropDownList("ID",Model._Shapelist as SelectList,"click here to select shape",new {@class ="form-control"})
 
-        </br/>   
+        <br/>   
         <button type="submit" class="btn btn-primary">Submit</button>
-        </br/>   </br/>   </br/>   
+        <br/>   <br/>   <br/>   
     </div>
 
    </div>
@@ -21,10 +21,10 @@
     <div class="form-group">
         <h2>this is model view approach user input text field</h2>
         @Html.LabelFor(model => model.textbox)
-    </br/> </br/>
+    <br/> <br/>
         @Html.TextBoxFor(model => model.textbox, new { @class = "form-control01" })
     
-    </br/> </br/> 
+    <br/> <br/> 
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 
