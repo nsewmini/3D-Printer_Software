@@ -18,6 +18,22 @@ namespace _3D_Printer_Software.Controllers
             var model = new dropdownlist();
             return View(model);
         }
+        [HttpPost]
+        public IActionResult ShapeSelection(int ID)
+        {
+            // Based on the shapeId parameter, determine which page to redirect to
+            switch (ID)
+            {
+                case 1: // circle
+                    return RedirectToAction("CirclePage");
+                case 2: // rectangle
+                    return RedirectToAction("RectanglePage");
+                case 3: // triangle
+                    return RedirectToAction("TrianglePage");
+                default:
+                    return RedirectToAction("Index");
+            }
+        }
 
         public IActionResult Privacy()
         {

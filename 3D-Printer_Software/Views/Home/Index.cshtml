@@ -1,30 +1,33 @@
-﻿@model dropdownlist;
+﻿@model dropdownlist
+@using Microsoft.AspNetCore.Mvc.Rendering
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>this is model view approach drop down list </h2>
+<!-- Add a form with POST method that redirects to ShapeSelection action method of Home controller -->
+<form method="post" action="@Url.Action("ShapeSelection", "Home")">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>this is model view approach drop down list </h2>
 
-        <br/>
-        <h1>choose the shape that you prfer to select</h1>
-        @Html.DropDownList("ID",Model._Shapelist as SelectList,"click here to select shape",new {@class ="form-control"})
+            <br/>
+            <h1>choose the shape that you prefer to select</h1>
+            @Html.DropDownList("ID", Model._Shapelist as SelectList, "click here to select shape", new {@class ="form-control"})
 
-        <br/>   
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <br/>   <br/>   <br/>   
+            <br/>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br/>   <br/>   <br/>
+        </div>
+
     </div>
+</form>
 
-   </div>
-
-    <div class="form-group">
-        <h2>this is model view approach user input text field</h2>
-        @Html.LabelFor(model => model.textbox)
+<div class="form-group">
+    <h2>this is model view approach user input text field</h2>
+    @Html.LabelFor(model => model.textbox)
     <br/> <br/>
-        @Html.TextBoxFor(model => model.textbox, new { @class = "form-control01" })
-    
-    <br/> <br/> 
+    @Html.TextBoxFor(model => model.textbox, new { @class = "form-control01" })
+
+    <br/> <br/>
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>
-
