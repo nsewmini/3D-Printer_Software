@@ -35,6 +35,31 @@ namespace _3D_Printer_Software.Controllers
             }
         }
 
+        public IActionResult CirclePage()
+        {
+            var model = new CircleShape();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult CirclePage(CircleShape model)
+        {
+            // Calculate perimeter of circle using user input
+            if (ModelState.IsValid)
+            {
+                double radius = model.Radius.GetValueOrDefault();
+                double centerX = model.CenterX.GetValueOrDefault();
+                double centerY = model.CenterY.GetValueOrDefault();
+
+                double perimeter = 2 * Math.PI * radius;
+
+                model.Perimeter = perimeter;
+            }
+
+            return View(model);
+        }
+
+
         public IActionResult Privacy()
         {
             return View();
