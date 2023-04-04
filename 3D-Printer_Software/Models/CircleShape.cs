@@ -6,7 +6,7 @@ namespace _3D_Printer_Software.Models
     {
 
         [Required(ErrorMessage = "Please enter a value for the radius.")]
-        [Range(0, double.MaxValue, ErrorMessage = "Please enter a non-negative value for the radius.")]
+        [Range(1, double.MaxValue, ErrorMessage = "Please enter a non-negative value for the radius.")]
         public double? Radius { get; set; }
 
         [Required(ErrorMessage = "Please enter a value for the X-coordinate of the center.")]
