@@ -6,12 +6,14 @@
 
 <!-- Add a form with POST method that redirects to ShapeSelection action method of Home controller -->
 <form method="post" action="@Url.Action("ShapeSelection", "Home")">
+    <center> <h1><b>WELCOME TO NEWLY CONTRUCTED 3D PRINTER SOFTWARE PLATFORM</b> </h1></center>
     <div class="row">
         <div class="col-md-4">
             <h2>this is model view approach drop down list </h2>
 
-            <br/>
-            <h1>choose the shape that you prefer to select</h1>
+           
+            <h2>choose the shape that you prefer to select</h2>
+
             @Html.DropDownList("ID", Model._Shapelist as SelectList, "click here to select shape", new {@class ="form-control"})
 
             <br/>
