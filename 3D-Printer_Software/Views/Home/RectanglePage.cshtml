@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model RectangleShape
+@{
+    ViewData["Title"] = "Rectangle Page";
+}
+
+<h1>Rectangle Page</h1>
+
+<form method="post" action="@Url.Action("RectanglePage", "Home")">
+    <div class="form-group">
+        <label for="Length">Length:</label>
+        @Html.TextBoxFor(model => model.Length, new { @class = "form-control" })
+        <span asp-validation-for="Length" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label for="Width">Width:</label>
+        @Html.TextBoxFor(model => model.Width, new { @class = "form-control" })
+        <span asp-validation-for="Width" class="text-danger"></span>
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-primary">Compute Perimeter</button>
+</form>
+
+@if (Model.Perimeter != 0)
+{
+    <h2>Perimeter: @Model.Perimeter</h2>
+}

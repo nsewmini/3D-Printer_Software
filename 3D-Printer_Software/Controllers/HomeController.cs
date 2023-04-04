@@ -1,6 +1,7 @@
 ﻿using _3D_Printer_Software.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Drawing;
 
 namespace _3D_Printer_Software.Controllers
 {
@@ -58,7 +59,23 @@ namespace _3D_Printer_Software.Controllers
 
             return View(model);
         }
+        public IActionResult RectanglePage()
+        {
+            var model = new RectangleShape();
+            return View(model);
+        }
 
+        [HttpPost]
+        public IActionResult RectanglePage(RectangleShape model)
+        {
+            // Calculate perimeter of the rectangle
+            var perimeter = 2 * (model.Length + model.Width);
+
+            // Add perimeter to model
+            model.Perimeter = perimeter;
+
+            return View("RectanglePage", model);
+        }
 
         public IActionResult Privacy()
         {
