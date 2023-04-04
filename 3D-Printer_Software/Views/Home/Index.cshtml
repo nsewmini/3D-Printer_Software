@@ -9,12 +9,8 @@
     <center> <h1><b>WELCOME TO NEWLY CONTRUCTED 3D PRINTER SOFTWARE PLATFORM</b> </h1></center>
     <div class="row">
         <div class="col-md-4">
-            <h2>this is model view approach drop down list </h2>
-
-           
-            <h2>choose the shape that you prefer to select</h2>
-
-            @Html.DropDownList("ID", Model._Shapelist as SelectList, "click here to select shape", new {@class ="form-control"})
+            <h3>choose the shape that you prefer to select</h3>
+          @Html.DropDownList("ID", Model._Shapelist as SelectList, "click here to select shape", new {@class ="form-control"})
 
             <br/>
             <button type="submit" class="btn btn-primary">Submit</button>
@@ -25,7 +21,7 @@
 </form>
 
 <div class="form-group">
-    <h2>this is model view approach user input text field</h2>
+    <h3>In here enter the text that you want</h3>
     @Html.LabelFor(model => model.textbox)
     <br/> <br/>
     @Html.TextBoxFor(model => model.textbox, new { @class = "form-control01" })
