@@ -35,7 +35,7 @@ namespace _3D_Printer_Software.Controllers
                     return RedirectToAction("Index");
             }
         }
-
+        [HttpGet]
         public IActionResult CirclePage()
         {
             var model = new CircleShape();
@@ -59,6 +59,7 @@ namespace _3D_Printer_Software.Controllers
 
             return View(model);
         }
+        [HttpGet]
         public IActionResult RectanglePage()
         {
             var model = new RectangleShape();
@@ -77,7 +78,34 @@ namespace _3D_Printer_Software.Controllers
             return View("RectanglePage", model);
         }
 
-        public IActionResult Privacy()
+        [HttpGet]
+        public IActionResult TrianglePage()
+        {
+            var model = new TriangleShape();
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult TrianglePage(TriangleShape triangle)
+        {
+            if (ModelState.IsValid)
+            {
+                if (triangle.Side1.HasValue && triangle.Side2.HasValue && triangle.Side3.HasValue)
+                {
+                    // Calculate the perimeter of the triangle
+                    int perimeter = triangle.Side1.Value + triangle.Side2.Value + triangle.Side3.Value;
+                    triangle.Perimeter = perimeter;
+                }
+                return View(triangle);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+            public IActionResult Privacy()
         {
             return View();
         }
