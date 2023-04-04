@@ -9,7 +9,12 @@
 }
 
 <h1>Rectangle Page</h1>
-
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary()
+    </div>
+}
 <form method="post" asp-action="RectanglePage">
     
     <div class="form-group">

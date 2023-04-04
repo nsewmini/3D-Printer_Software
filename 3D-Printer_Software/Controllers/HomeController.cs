@@ -89,6 +89,11 @@ namespace _3D_Printer_Software.Controllers
                 
                
             model.Perimeter = perimeter; }
+            else
+            {
+
+                ModelState.AddModelError(string.Empty, "The entered side lengths cannot form a valid rectangle.");
+            }
 
             return View(model);
         }
