@@ -10,23 +10,29 @@
 
 <h1>Rectangle Page</h1>
 
-<form method="post" action="@Url.Action("RectanglePage", "Home")">
+<form method="post" asp-action="RectanglePage">
+    
     <div class="form-group">
         <label for="Length">Length:</label>
-        @Html.TextBoxFor(model => model.Length, new { @class = "form-control" })
+        <input type="text" name="Length" class="form-control" value="@Model.Length" placeholder="Enter length" />
         <span asp-validation-for="Length" class="text-danger"></span>
     </div>
     <br />
     <div class="form-group">
         <label for="Width">Width:</label>
-        @Html.TextBoxFor(model => model.Width, new { @class = "form-control" })
+        <input type="text" name="Width" class="form-control" value="@Model.Width" placeholder="Enter width" />
         <span asp-validation-for="Width" class="text-danger"></span>
     </div>
-    <br/>
+    <br />
     <button type="submit" class="btn btn-primary">Compute Perimeter</button>
 </form>
 
-@if (Model.Perimeter != 0)
+
+@if (Model.Perimeter.HasValue)
 {
     <h2>Perimeter: @Model.Perimeter</h2>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

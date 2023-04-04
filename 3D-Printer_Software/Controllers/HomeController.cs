@@ -35,6 +35,11 @@ namespace _3D_Printer_Software.Controllers
                     return RedirectToAction("Index");
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        //circle perimeter calculation
         [HttpGet]
         public IActionResult CirclePage()
         {
@@ -58,8 +63,13 @@ namespace _3D_Printer_Software.Controllers
 
             return View(model);
         }
-    
-    [HttpGet]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        //rectangle perimeter implemetation
+
+        [HttpGet]
         public IActionResult RectanglePage()
         {
             var model = new RectangleShape();
@@ -69,14 +79,24 @@ namespace _3D_Printer_Software.Controllers
         [HttpPost]
         public IActionResult RectanglePage(RectangleShape model)
         {
-            // Calculate perimeter of the rectangle
-            var perimeter = 2 * (model.Length + model.Width);
+            if (ModelState.IsValid)
+            {
+                double length = model.Length.GetValueOrDefault();
+                double width = model.Width.GetValueOrDefault();
 
-            // Add perimeter to model
-            model.Perimeter = perimeter;
+                double perimeter = 2 * (length + width);
 
-            return View("RectanglePage", model);
+                
+               
+            model.Perimeter = perimeter; }
+
+            return View(model);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        //triangle perimeter implementation
 
         [HttpGet]
         public IActionResult TrianglePage()
