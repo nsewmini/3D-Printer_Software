@@ -45,7 +45,6 @@ namespace _3D_Printer_Software.Controllers
         [HttpPost]
         public IActionResult CirclePage(CircleShape model)
         {
-            // Calculate perimeter of circle using user input
             if (ModelState.IsValid)
             {
                 double radius = model.Radius.GetValueOrDefault();
@@ -59,7 +58,8 @@ namespace _3D_Printer_Software.Controllers
 
             return View(model);
         }
-        [HttpGet]
+    
+    [HttpGet]
         public IActionResult RectanglePage()
         {
             var model = new RectangleShape();
