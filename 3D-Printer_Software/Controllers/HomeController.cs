@@ -97,7 +97,6 @@ namespace _3D_Printer_Software.Controllers
         /// </summary>
         /// <returns></returns>
         //triangle perimeter implementation
-
         [HttpGet]
         public IActionResult TrianglePage()
         {
@@ -106,26 +105,30 @@ namespace _3D_Printer_Software.Controllers
         }
 
         [HttpPost]
-        public IActionResult TrianglePage(TriangleShape triangle)
+        public IActionResult TrianglePage(TriangleShape model)
         {
             if (ModelState.IsValid)
             {
-                if (triangle.Side1.HasValue && triangle.Side2.HasValue && triangle.Side3.HasValue)
+                int side1 = model.Side1.GetValueOrDefault();
+                int side2 = model.Side2.GetValueOrDefault();
+                int side3 = model.Side3.GetValueOrDefault();
+
+                if (side1 + side2 > side3 && side2 + side3 > side1 && side1 + side3 > side2)
                 {
-                    // Calculate the perimeter of the triangle
-                    int perimeter = triangle.Side1.Value + triangle.Side2.Value + triangle.Side3.Value;
-                    triangle.Perimeter = perimeter;
+                    int perimeter = side1 + side2 + side3;
+
+                    model.Perimeter = perimeter;
                 }
-                return View(triangle);
+                else
+                {
+                    
+                    ModelState.AddModelError(string.Empty, "The entered side lengths cannot form a valid triangle.");
+                }
             }
-            else
-            {
-                return View();
-            }
+
+            return View(model);
         }
-
-
-            public IActionResult Privacy()
+        public IActionResult Privacy()
         {
             return View();
         }

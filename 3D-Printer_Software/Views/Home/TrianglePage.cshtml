@@ -3,30 +3,48 @@
 *@
 @{
 }
-@model _3D_Printer_Software.Models.TriangleShape
+
+
+@model TriangleShape
 @{
     ViewData["Title"] = "Triangle Page";
 }
-
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary()
+    </div>
+}
 <h1>Triangle Page</h1>
 
 <form method="post" action="@Url.Action("TrianglePage", "Home")">
     <div class="form-group">
         <label for="side1">Side 1:</label>
-        <input type="number" name="side1" id="side1" class="form-control" />
+        <input type="number" name="side1" id="side1" class="form-control" value="@Model.Side1" />
+        @Html.ValidationMessageFor(model => model.Side1)
     </div>
     <div class="form-group">
         <label for="side2">Side 2:</label>
-        <input type="number" name="side2" id="side2" class="form-control" />
+        <input type="number" name="side2" id="side2" class="form-control" value="@Model.Side2" />
+        @Html.ValidationMessageFor(model => model.Side2)
     </div>
     <div class="form-group">
         <label for="side3">Side 3:</label>
-        <input type="number" name="side3" id="side3" class="form-control" />
+        <input type="number" name="side3" id="side3" class="form-control" value="@Model.Side3" />
+        @Html.ValidationMessageFor(model => model.Side3)
     </div>
     <button type="submit" class="btn btn-primary">Calculate Perimeter</button>
 </form>
 
-@if (Model.Perimeter != null)
+@if (Model.Perimeter.HasValue)
 {
-    <h2>The perimeter of the triangle is @Model.Perimeter</h2>
+    <div class="mt-3">
+        <p>Perimeter: @Model.Perimeter</p>
+    </div>
+}
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
