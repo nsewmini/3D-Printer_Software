@@ -16,6 +16,8 @@ namespace _3D_Printer_Software.Models
         public double? CenterY { get; set; }
 
         public double? Perimeter { get; set; }
+
+        public double? Liqued { get; set; }
     }
 }
 

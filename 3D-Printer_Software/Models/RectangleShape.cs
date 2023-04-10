@@ -17,6 +17,7 @@ namespace _3D_Printer_Software.Models
         public double? Width { get; set; }
         //perimeter data
          public double? Perimeter { get; set; }
+        public double? Liqued { get; set; }
     }
 
     }

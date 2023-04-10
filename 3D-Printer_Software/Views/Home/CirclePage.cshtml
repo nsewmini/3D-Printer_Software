@@ -34,13 +34,16 @@
         @Html.ValidationMessageFor(model => model.CenterY)
     </div>
     <br/><br/>
-    <button type="submit" class="btn btn-primary">Calculate Perimeter</button>
+    <button type="submit" class="btn btn-primary">Calculate Perimeter & required Liquid</button>
 </form>
 
 @if (Model.Perimeter.HasValue)
 {
     <div class="mt-3">
-        <h2>Perimeter: @Model.Perimeter</h2>
+        <h2>Perimeter: @Model.Perimeter cm</h2>
+        <h3> Assumption: we will be using a liquid material that requires 1.5cm of material per 1 cm of perimeter</h3>
+        <h2>Required Liquid : @Model.Liqued cm of material</h2>
+        
     </div>
 }
 

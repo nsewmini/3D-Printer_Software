@@ -57,8 +57,10 @@ namespace _3D_Printer_Software.Controllers
                 double centerY = model.CenterY.GetValueOrDefault();
 
                 double perimeter = 2 * Math.PI * radius;
+                double liqued = 1.5 * perimeter;
 
                 model.Perimeter = perimeter;
+                model.Liqued = liqued;
             }
 
             return View(model);
@@ -85,10 +87,13 @@ namespace _3D_Printer_Software.Controllers
                 double width = model.Width.GetValueOrDefault();
 
                 double perimeter = 2 * (length + width);
+                double liqued = 1.5 * perimeter;
 
                 
-               
-            model.Perimeter = perimeter; }
+
+                model.Perimeter = perimeter;
+                model.Liqued = liqued;
+            }
             else
             {
 
@@ -123,6 +128,8 @@ namespace _3D_Printer_Software.Controllers
                     int perimeter = side1 + side2 + side3;
 
                     model.Perimeter = perimeter;
+                    double liqued = 1.5 * perimeter;
+                    model.Liqued = liqued;
                 }
                 else
                 {

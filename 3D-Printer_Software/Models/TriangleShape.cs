@@ -18,5 +18,6 @@ namespace _3D_Printer_Software.Models
         public int? Side3 { get; set; }
 
         public int? Perimeter { get; set; }
+        public double? Liqued { get; set; }
     }
 }
